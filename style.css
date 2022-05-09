@@ -1,0 +1,178 @@
+/*=======GERAL==================*/
+
+* {
+   margin: 0;
+   box-sizing: border-box;
+}
+
+:root {
+   --primary-color: hsl(240, 100%, 40%);
+   --headline: hsl(66, 98%, 52%);
+   --paragraph: hsl(0, 87%, 39%);
+
+   --brand-beige: hsl(71, 38%, 77%);
+   --brand-light: hsl(120, 41%, 55%);
+
+   font-size: 62.5%; /* 1rem = 10px*/
+
+   --nav-height: 7.2rem;
+}
+
+body {
+   font-family: 'DM sans';
+   font-size: 1.6rem;
+   text-align: center;
+}
+
+.wrapper {
+   width: 37.5rem;
+   margin-right: auto;
+   margin-left: auto;
+   padding-inline: 2.4rem;
+}
+
+/*======HEADER===============*/
+
+header {
+   margin-top: calc(4.1rem + var(--nav-height));
+}
+
+header:before {
+   content: '';
+   width: 100vw;
+   /*100 vw faz com que esse elemento ocupe os 100 espaços da viewport (v de viewport, w de width)*/
+   height: calc(108rem + var(--nav-height));
+   background-color: var(--brand-light);
+   display: block;
+
+   position: absolute;
+   /* position absolute faz referência á sobreposição que esse elemento vai ter com relação às outras coisas da página*/
+   top: 0;
+   left: 0;
+   z-index: -1;
+   /* z-index mostra em que posição o objeto vai ficar quando eu quiser fazer referência à profundidade, levando em conta que o eixo x é o horizontal, o y é o vertical e o z é o de profundidade. Assim o valor negativo (-1) do z-index vai fazer com que ele seja jogado para trás dos outros elementos da página */
+}
+
+header h4 {
+   font-size: 1.4rem;
+   color: var(--primary-color);
+   margin-bottom: 1.6rem;
+}
+
+header h1 {
+   font-size: 3.4rem;
+   color: var(--headline);
+   line-height: 130%;
+   margin-bottom: 2.4rem;
+}
+
+header p {
+   color: var(--paragraph);
+   font-size: 1.8rem;
+   line-height: 150%;
+   font-weight: 400;
+   margin-bottom: 3.2rem;
+
+   border: 0px solid red;
+}
+
+header button {
+   background: var(--primary-color);
+
+   border: none;
+   border-radius: 4rem;
+
+   margin-right: auto;
+   margin-left: auto;
+   margin-bottom: 6rem;
+
+   height: 6.2rem;
+   width: 26.3rem;
+
+   color: white;
+   text-transform: uppercase;
+   font-size: 1.4rem;
+   font-weight: 700;
+
+   display: flex;
+   align-items: center;
+   justify-content: center;
+   gap: 1.6rem;
+}
+
+header img {
+   display: block;
+   margin-inline: auto;
+   /*object-position: 0 2rem;*/
+   width: 26.4rem;
+   height: 26.4rem;
+
+   margin-bottom: 2rem;
+}
+
+.stats {
+   width: 32.7rem;
+
+   padding-top: 4rem;
+   padding-bottom: 4rem;
+   /*eu poderia ao invés de usar o padding-top e padding-bottom usar o padding-block, pq ele faz referêcnai às duas alturas no eixo vertical*/
+
+   margin-inline: auto;
+   background-color: var(--brand-beige);
+   border: 1px solid var(--brand-light);
+   border-radius: 0.6rem;
+
+   display: flex;
+   /* o flex-direction abaixo faz referência ao flex acima, o alinhamento do display flex é automáticamente em linha, mas como na página ele tem que ser em coluna eu tive que mudar */
+   flex-direction: column;
+   justify-content: center;
+   gap: 6rem;
+}
+
+.stat h3 {
+   font-size: 4.8rem;
+   color: var(--headline);
+   line-height: 130%;
+   margin-bottom: 0.4rem;
+}
+
+.stat p {
+   margin: 0;
+   color: var(--primary-color);
+   font-size: 1.6rem;
+   line-height: 150%;
+}
+
+/*=====NAVIGATION=======================*/
+
+nav {
+   display: flex;
+
+   height: var(--nav-height);
+
+   position: fixed;
+   /* fixed vai deixar o menu fixo na página, mesmo quando eu scrollar para baixo o cabeçalho vai se manter na tela na parte superior */
+   top: 0;
+   left: 50%;
+   transform: translateX(-50%);
+   /*translateX junto com esse left 50% faz com que o elemento se auto centralize na tela */
+}
+
+nav.wrapper div {
+   display: flex;
+   align-items: center;
+   justify-content: space-between;
+}
+
+nav.scroll {
+   background: var(--primary-color);
+   width: 100vw;
+}
+
+nav.scroll svg:nth-child(1) path {
+   fill: white;
+}
+
+nav.scroll svg:nth-child(2) path {
+   stroke: white;
+}
